@@ -1,0 +1,23 @@
+<h2>商品詳細</h2>
+<div>
+ <table>
+  <thead>
+   <tr>
+   <th>商品名</th>
+   <th>商品説明</th>
+   <th>ジャンル</th>
+   <th>税込価格</th>
+   </tr>
+  </thead>
+  <tbody>
+   <tr>
+   <td><%= @item.name %></td>
+   <td><%= @item.introduction %></td>
+   <td><%= @item.genre.name %></td>
+   <td><%= @item.price.to_s(:delimited) %></td>
+   <td>
+   </tr>
+  </tbody>
+ </table>
+
+</div>

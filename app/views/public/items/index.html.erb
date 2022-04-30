@@ -1,0 +1,18 @@
+<h2>商品一覧</h2>
+<h5>(全<%= @item.count %>件)</h5>
+<table>
+ <thead>
+ </thead>
+ <tbody>
+  <% @item.each do |item| %>
+  <tr>
+  <td></td>
+  <td>
+   <%= link_to item.name, item_path(item.id) %>
+  </td>
+  <td><%= item.price.to_s(:delimited) %></td>
+  </tr>
+  <% end %>
+ </tbody>
+</table>
+<%= paginate @item %>
