@@ -1,21 +1,29 @@
-<h2>ログイン</h2>
-<h3>会員の方はこちらからログイン</h3>
 
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :email, "メールアドレス" %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+<div class="customer-rog">
+ <div class="customer-rog-top">
+  <h3 class="bg-light text-center">ログイン</h3>
+ </div>
+ <div class="">
+  <div class="">
+   <h4 class="customer-rog-info bg-light text-center mb-3">会員の方はこちらからログイン</h4>
+
+  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+   <div class="field d-flex align-items-center py-2">
+    <%= f.label :email, "メールアドレス", class: "mb-auto customer-rog-th" %>
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "customer-rog-td" %>
+   </div>
+
+   <div class="field d-flex align-items-center py-2">
+    <%= f.label :password, "パスワード", class: "mb-auto customer-rog-th" %>
+    <%= f.password_field :password, autocomplete: "current-password", class: "customer-rog-td" %>
+   </div>
+
+   <div class="actions my-4 customer-rog-link">
+    <%= f.submit "ログイン", class: 'btn btn-primary px-4' %>
+   </div>
+  <% end %>
   </div>
 
-  <div class="field">
-    <%= f.label :password, "パスワード" %><br />
-    <%= f.password_field :password, autocomplete: "current-password" %>
-  </div>
-
-
-  <div class="actions">
-    <%= f.submit "ログイン" %>
-  </div>
-<% end %>
-
-<%= render "public/shared/links" %>
+  <%= render "public/shared/links" %>
+ </div>
+</div>

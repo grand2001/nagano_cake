@@ -1,4 +1,6 @@
 class Admin::ItemsController < ApplicationController
+ before_action :authenticate_admin!
+ 
   def index
    @items = Item.page(params[:page])
    @genre = Genre.all
@@ -25,22 +27,27 @@ class Admin::ItemsController < ApplicationController
    if @item.save
     redirect_to admin_item_path(@item.id)
    else
-    render 'edit/index'
+    @items = Item.page(params[:page])
+    @genre = Genre.all
+    render 'admin/items/new'
    end
   end
 
   def update
    @genre = Genre.find(params[:id])
    @item = Item.find(params[:id])
-
-   redirect_to admin_item_path(@item.id)
+   if @item.update(item_params)
+    redirect_to admin_item_path(@item.id)
+   else
+    render 'admin/items/edit'
+   end
   end
 
 
  private
 
  def item_params
-  params.require(:item).permit(:genre_id, :price, :introduction, :name)
+  params.require(:item).permit(:genre_id, :price, :introduction, :name, :image)
  end
 
 end

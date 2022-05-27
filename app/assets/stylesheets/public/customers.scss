@@ -1,3 +1,53 @@
 // Place all the styles related to the public/customers controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+.customer-tag {
+ width: 250px;
+ margin: 50px 0 0 150px;
+}
+
+.my-page {
+ margin: 50px 0 0 200px;
+}
+
+.my-top {
+}
+
+.customer-box-th {
+ width: 170px;
+ padding: 15px 0;
+}
+
+.customer-box-td {
+ width: 450px;
+ padding: 15px 0;
+}
+
+.customer-index-link {
+ width: 100px;
+}
+
+.customer-field {
+ margin: 25px 0 0 110px ;
+}
+
+.customer-field-tag {
+ width: 200px;
+}
+
+.customer-submit-m {
+ margin-left: 200px;
+}
+
+.customer-con-m {
+ margin-left: 150px;
+}
+
+.customers_withdrawal-top {
+ margin-top: 140px;
+}
+
+.customers_withdrawal-btn {
+ width: 140px;
+ margin: 0px 10px;
+}

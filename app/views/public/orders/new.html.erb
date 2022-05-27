@@ -1,24 +1,67 @@
-<h2>注文情報入力</h2>
-<h3>支払方法</h3>
+<p id="notice"></p>
+<% if @order.errors.any? %>
+ <div id="error_explanation">
+  <ul style="color: red">
+   <h3 class="mt-5 ml-5"><%= @order.errors.count %> error prphibited this obj from being saced:</h3>
+   <% @order.errors.full_messages.each do |message| %>
+    <li class="mt-3 ml-5"><%= message %></li>
+   <% end %>
+  </ul>
+ </div>
+<% end %>
+<h3 class="order-top bg-light text-center">注文情報入力</h3>
 
-<%= form_with model: @order, url: new_order_path do |f| %>
-<%= f.radio_button :payment_method, Order.payment_methods.key(0) %>
-<%= f.label :payment_method, Order.payment_methods_i18n[:credit_card] %>
+<%= form_with model: @order, url: orders_confirm_path do |f| %>
+ <h4 class="mx-5"><strong>支払方法</strong></h4>
+ <div>
+  <div class="order-new-radio">
+   <%= f.radio_button :payment_method, Order.payment_methods.key(0) %>
+   <%= f.label :payment_method, Order.payment_methods_i18n[:credit_card] %>
+  </div>
+  <div class="order-new-radio">
+   <%= f.radio_button :payment_method, Order.payment_methods.key(1) %>
+   <%= f.label :payment_method, Order.payment_methods_i18n[:transfer]%>
+  </div>
+ </div>
+ <h4 class="mx-5 mt-3"><strong>お届け先</strong></h4>
+ <div class="order-new-radio">
+  <%= f.radio_button :address_option, '0' %>
+  <%= f.label :address_option, 'ご自身の住所', value: 0 %>
+ </div>
+ <div class="order-address">
+  〒 <%= current_customer.postal_code %><%= current_customer.address %><br>
+  <%= current_customer.first_name %><%= current_customer.last_name%>
+ </div>
 
-<%= f.radio_button :payment_method, Order.payment_methods.key(1) %>
-<%= f.label :payment_method, Order.payment_methods_i18n[:transfer]%>
+ <div class="order-new-radio">
+  <%= f.radio_button :address_option, '1' %>
+  <%= f.label :address_option, '登録済み住所から選択', value: 1 %>
+ </div>
+ <div class="order-address order-address-select">
+  <%= f.select :address_id, options_from_collection_for_select(current_customer.addresses.all, :id, :address_display) %>
+ </div>
 
-<h3>お届け先</h3>
-<%= f.radio_button :order_method, '0' %>
- <%= f.label :order_method, 'ご自身の住所', value: 0 %>
- 
+ <div class="order-new-radio">
+  <%= f.radio_button :address_option, '2' %>
+  <%= f.label :address_option, '新しいお届け先', value: 2 %>
+ </div>
 
-<%= f.radio_button :order_method, '1' %>
-<%= f.label :order_method, '登録済み住所から選択', value: 1 %>
- <%= f.select :address_id, options_from_collection_for_select(Address.all, :id, :address_display) %>
+ <div class="order-address">
+  <div class="d-flex align-items-center py-1">
+   <div class=""><%= f.label :postal_code , "郵便番号(ハイフンなし)", class: "mb-auto customer-field-tag" %></div>
+   <div><%= f.text_field :postal_code, placeholder: "00000000" %></div>
+  </div>
 
-<%= f.radio_button :order_method, '2' %>
-<%= f.label :order_method, '新しいお届け先', value: 2 %>
- 
-<%= f.submit "確認画面へ進む" %>
+  <div class="d-flex align-items-center py-1">
+   <div class=""><%= f.label :address , "住所", class: "mb-auto customer-field-tag" %></div>
+   <div><%= f.text_field :address , size: 50 , placeholder: "東京都渋谷区代々木神園町0-0"%></div>
+  </div>
+
+  <div class="d-flex align-items-center py-1">
+   <div class=""><%= f.label :name , "宛名", class: "mb-auto customer-field-tag" %></div>
+   <div><%= f.text_field :name, placeholder: "令和道子" %></div>
+  </div>
+ </div>
+
+<%= f.submit "確認画面へ進む", class: 'btn btn-primary order-link' %>
 <% end %>

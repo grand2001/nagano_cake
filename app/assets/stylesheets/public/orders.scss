@@ -1,3 +1,92 @@
 // Place all the styles related to the public/orders controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+.order-top {
+ width: 240px;
+ margin: 50px 0 0 150px;
+}
+
+.order-new-radio {
+ margin: 3px 0 0 100px;
+}
+
+.order-address-select > select {
+ width: 700px;
+}
+
+.order-address {
+ margin-left: 150px;
+}
+
+.order-address {
+ width: 100px;
+}
+
+.order-link {
+ margin: 20px 0 0 400px;
+}
+
+
+.order-c-item {
+ width: 450px;
+}
+
+.order-c-item-price {
+ width: 150px;
+}
+
+.order-index {
+ width: 150px;
+}
+
+.order-index-address {
+ width: 600px;
+}
+
+
+.order-show-info-th {
+ width: 150px;
+}
+
+.order-show-info-td {
+ width: 600px;
+}
+
+.order-show-address-th {
+ width: 150px;
+ padding: 24px 0;
+}
+
+.order-show-address-td {
+ width: 600px;
+ height: 75px;
+}
+
+.order-show-price-th {
+ width: 200px;
+}
+
+.order-show-price-td {
+ width: 160px;
+}
+
+.order-show-item-name {
+ width: 600px;
+}
+
+.order-show-item-price {
+ width: 150px;
+}
+
+.order-show-item-amount {
+ width: 100px;
+}
+
+.order-show-item-total {
+ width: 100px;
+}
+
+.order-thanks {
+ margin-top: 220px;
+}

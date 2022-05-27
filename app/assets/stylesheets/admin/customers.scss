@@ -1,3 +1,43 @@
 // Place all the styles related to the admin/customers controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+.admin-customers {
+ margin: 50px 0 25px 200px;
+}
+
+.admin-customers-top {
+ width: 180px;
+}
+
+.admin-customers-id {
+ width: 100px;
+}
+
+.admin-customers-name {
+ width: 250px;
+}
+
+.admin-customers-email {
+ width: 250px;
+}
+
+.admin-customers-status {
+ width: 200px;
+}
+
+.admin-customer {
+ margin: 50px 0 0 150px;
+}
+
+.admin-customer-top {
+ width: 500px;
+}
+
+.admin-customer-th {
+ width: 200px;
+}
+
+.admin-customer-td {
+ width: 600px;
+}

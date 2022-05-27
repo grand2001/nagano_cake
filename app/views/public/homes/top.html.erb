@@ -1,23 +1,30 @@
-<h3>ようこそ、ながのCAKEへ！<br>
-このサイトは、ケーキ販売のECサイトになります<br>
-会員でない方も商品の閲覧はできますが、<br>
-購入には会員登録が必要になります。
-</h3>
+<div class="all">
+ <div class="top-text">
+  <h5 class="intr">ようこそ、ながのCAKEへ！<br>
+  このサイトは、ケーキ販売のECサイトになります<br>
+  会員でない方も商品の閲覧はできますが、<br>
+  購入には会員登録が必要になります。
+  </h5>
+ </div>
+ <div class="new"><h2>新着商品</h2></div>
 
-<h2>新着商品</h2>
-<table>
-  <tbody>
-  <% @item.each do |item| %>
-   <td>
-    <%= link_to item_path(item.id) do %>
+  <div class="info">
+   <% @item.each do |item| %>
+    <div class="link">
+     <div class="image">
+      <%= link_to item_path(item.id) do %>
+       <% if item.image.attached? %>
+        <%= image_tag item.image, size: "200x150" %>
+       <% else %>
+        <%= image_tag 'no_image', size: "200x150" %>
+       <% end %>
+      <% end %>
+     </div>
+     <div class="name"><%= link_to item.name, item_path(item.id) %></div>
+     <div class="price">¥<%= item.price.to_s(:delimited) %></div>
+    </div>
     <% end %>
-   </td>
-   <td><%= link_to item.name, item_path(item.id) %></td>
-   <td><%= item.price %></td>
-  <% end %>
-  </tbody>
-</table>
-<div>
- <%= link_to "全ての商品を見る>", items_path %>
+   </div>
+  <div class="all-items"><%= link_to "全ての商品を見る>", items_path %></div>
 </div>
 

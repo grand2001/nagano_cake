@@ -1,3 +1,114 @@
 // Place all the styles related to the public/homes controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+.all-items {
+ margin: 10px 0 20px 850px;
+}
+
+.top-text {
+ margin-right: 290px;
+ padding: 100px 100px 100px 250px;
+ border: 1px solid;
+}
+
+.tag {
+ width: 220px;
+}
+
+.intr {
+ padding: 50px 0;
+ margin: 30px 0 ;
+ border: 1px solid;
+}
+
+.new {
+ margin: 20px 0;
+}
+
+.about > h1 {
+ margin: 40px;
+ text-align: center;
+ font-size: 80px;
+}
+
+.about-text > h2 {
+ text-align: center;
+ margin-bottom: 20px;
+}
+
+.about-image {
+ padding: 100px 200px;
+ border: 1px solid;
+ margin: 0 450px;
+}
+
+.public-reg-link {
+ margin: 30px 0 0 90px;
+}
+
+.public-ses-link {
+ margin: 30px 0 0 120px;
+}
+
+.public-rog {
+
+}
+
+.flex {
+ display: flex;
+}
+
+.block {
+  display: block;
+}
+
+.inline {
+ display: inline;
+}
+
+.inline-block {
+ display: inline-block;
+}
+
+.customer-new {
+ margin-left: 100px;
+}
+
+.customer-new-th {
+ width: 270px;
+}
+
+.customer-new-name-th {
+ width: 227px;
+}
+
+.customer-new-link {
+ margin-left: 270px ;
+}
+
+.customer-rog {
+ margin: 50px 0 0 150px;
+}
+
+.customer-rog-top {
+ width: 220px;
+}
+
+.customer-rog-info {
+ width: 450px;
+ margin: 50px 0 0 90px;
+}
+
+.customer-rog-th {
+ width: 180px;
+ margin-left: 150px;
+}
+
+.customer-rog-td {
+ width: 300px;
+}
+
+.customer-rog-link {
+ margin-left: 330px;
+}

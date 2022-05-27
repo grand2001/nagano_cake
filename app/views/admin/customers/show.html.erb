@@ -1,34 +1,32 @@
-<h2><%= @customer.first_name %><%= @customer.last_name %>さんの会員詳細</h2>
-
-<table>
- <thead>
-  <tr>
-  <th>会員ID</th>
-  <th>氏名</th>
-  <th>フリガナ</th>
-  <th>郵便番号</th>
-  <th>住所</th>
-  <th>電話番号</th>
-  <th>メールアドレス</th>
-  <th>会員ステータス</th>
-  </tr>
- </thead>
- <tbody>
-   <tr>
-   <td><%= @customer.id %></td>
-   <td><%= @customer.first_name %><%= @customer.last_name %></td>
-   <td><%= @customer.first_name_kana %><%= @customer.last_name_kana %></td>
-   <td><%= @customer.postal_code %></td>
-   <td><%= @customer.address %></td>
-   <td><%= @customer.telephone_number %></td>
-   <td><%= @customer.email %></td>
+<div class="admin-customer">
+ <h2 class="admin-customer-top text-center bg-light"><%= @customer.first_name %><%= @customer.last_name %>さんの会員詳細</h2>
+ <div class="flex">
+  <div class="admin-customer-show-th">
+   <div class="px-1 py-3">会員ID</div>
+   <div class="px-1 py-3">氏名</div>
+   <div class="px-1 py-3">カナ</div>
+   <div class="px-1 py-3">郵便番号</div>
+   <div class="px-1 py-3">住所</div>
+   <div class="px-1 py-3">電話番号</div>
+   <div class="px-1 py-3">メールアドレス</div>
+   <div class="px-1 py-3">会員ステータス</div>
+  </div>
+  <div class="admin-customer-show-td">
+   <div class="px-1 py-3"><%= @customer.id %></div>
+   <div class="px-1 py-3"><%= @customer.first_name %><%= @customer.last_name %></div>
+   <div class="px-1 py-3"><%= @customer.first_name_kana %><%= @customer.last_name_kana %></div>
+   <div class="px-1 py-3"><%= @customer.postal_code %></div>
+   <div class="px-1 py-3"><%= @customer.address %></div>
+   <div class="px-1 py-3"><%= @customer.telephone_number %></div>
+   <div class="px-1 py-3"><%= @customer.email %></div>
    <% if @customer.is_deleted == true %>
-    <td>退会</td>
+    <div class="px-1 py-3">退会</div>
    <% else %>
-    <td>有効</td>
-   </tr>
+    <div class="px-1 py-3">有効</div>
    <% end %>
- </tbody>
-</table>
-
-<%= link_to "編集する", edit_admin_customer_path(@customer.id) %>
+    <div>
+    <%= link_to "編集する", edit_admin_customer_path(@customer.id), class: 'btn btn-success' %>
+   </div>
+  </div>
+ </div>
+</div>

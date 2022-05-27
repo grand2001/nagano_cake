@@ -1,52 +1,70 @@
-<h2>新規会員登録</h2>
+ <div style="color: red", class="mt-5 ml-5">
+  <%= render "public/shared/error_messages", resource: resource %>
+ </div>
+ <div class="">
+  <div class="all">
+   <h3 class="bg-light text-center tag mb-5">新規会員登録</h3>
+  </div>
 
-       <%= render "public/shared/error_messages", resource: resource %>
 
-     <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-        <div class="field">
-         <%= f.label :name , "名前" %><br />
-         (姓)<%= f.text_field :first_name, autofocus: true, autocomplete: "first_name" %>
-         (名)<%= f.text_field :last_name, autofocus: true, autocomplete: "last_name" %>
-        </div>
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+   <div class="customer-new">
+    <div class="d-flex align-items-center field py-2">
+     <div><%= f.label :name ,"名前", class: "mb-auto customer-new-name-th" %></div>
+     <div class="flex">
+      <div class="mr-3">(姓)</div>
+      <div class=""><%= f.text_field :first_name, autofocus: true, autocomplete: "first_name",class: "" %></div>
+      <div class="ml-5 mr-3">(名)</div>
+      <div class=""><%= f.text_field :last_name, autofocus: true, autocomplete: "last_name" %></div>
+     </div>
+    </div>
 
-        <div class="field">
-         <%= f.label :name_kana , "フリガナ" %><br />
-         (セイ)<%= f.text_field :first_name_kana, autofocus: true, autocomplete: "first_name_kana" %>
-         (メイ)<%= f.text_field :last_name_kana, autofocus: true, autocomplete: "last_name_kana" %>
-        </div>
+    <div class="d-flex align-items-center field py-2">
+     <div><%= f.label :name_kana , "フリガナ", class: "mb-auto customer-new-name-th" %></div>
+     <div class="flex">
+      <div class="">(セイ)</div>
+      <div class=""><%= f.text_field :first_name_kana, autofocus: true, autocomplete: "first_name_kana" %></div>
+      <div class="ml-5">(メイ)</div>
+      <div class=""><%= f.text_field :last_name_kana, autofocus: true, autocomplete: "last_name_kana" %></div>
+     </div>
+    </div>
 
-        <div class="field">
-         <%= f.label :email , "メールアドレス" %><br />
-         <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-        </div>
+    <div class="d-flex align-items-center field py-2">
+     <div class=""><%= f.label :email , "メールアドレス", class: "mb-auto customer-new-th" %></div>
+     <div class=""><%= f.email_field :email, autofocus: true, autocomplete: "email" %></div>
+    </div>
 
-        <div class="field">
-         <%= f.label :postal_code , "郵便番号(ハイフンなし)" %><br />
-         <%= f.text_field :postal_code, autofocus: true, autocomplete: "postal_code" %>
-        </div>
+    <div class="d-flex align-items-center field py-2">
+     <div class=""><%= f.label :postal_code , "郵便番号(ハイフンなし)", class: "mb-auto customer-new-th" %></div>
+     <div class=""><%= f.text_field :postal_code, autofocus: true, autocomplete: "postal_code" %></div>
+    </div>
 
-        <div class="field">
-         <%= f.label :address , "住所" %><br />
-         <%= f.text_field :address, autofocus: true, autocomplete: "address" %>
-        </div>
+    <div class="d-flex align-items-center field py-2">
+     <div class=""><%= f.label :address , "住所", class: "mb-auto customer-new-th" %></div>
+     <div class=""><%= f.text_field :address, autofocus: true, autocomplete: "address" %></div>
+    </div>
 
-        <div class="field">
-         <%= f.label :telephone_number , "電話番号(ハイフンなし)" %><br />
-         <%= f.text_field :telephone_number, autocomplete: "telephone_number" %>
+    <div class="d-flex align-items-center field py-2">
+     <div class=""><%= f.label :telephone_number , "電話番号(ハイフンなし)", class: "mb-auto customer-new-th" %></div>
+     <div class=""><%= f.text_field :telephone_number, autocomplete: "telephone_number" %></div>
+    </div>
 
-        <div class="field">
-         <%= f.label :password, "パスワード(6文字以上)" %><br />
-         <%= f.password_field :password, autocomplete: "new-password" %>
-        </div>
+    <div class="d-flex align-items-center field py-2">
+     <div class=""><%= f.label :password, "パスワード(6文字以上)", class: "mb-auto customer-new-th" %></div>
+     <div class=""><%= f.password_field :password, autocomplete: "new-password" %></div>
+    </div>
 
-        <div class="field">
-         <%= f.label :password_confirmation, "パスワード(確認用)" %><br />
-         <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-        </div>
+    <div class="d-flex align-items-center field py-2">
+     <div class=""><%= f.label :password_confirmation, "パスワード(確認用)", class: "mb-auto customer-new-th" %></div>
+     <div class=""><%= f.password_field :password_confirmation, autocomplete: "new-password" %></div>
+    </div>
 
-       <div class="actions">
-         <%= f.submit "新規登録" %>
-       </div>
-     <% end %>
-
-<%= render "public/shared/links" %>
+    <div class="justify-content-center py-2">
+     <div class="actions customer-new-link">
+       <%= f.submit "新規登録", class: 'btn btn-success px-5' %>
+     </div>
+    </div>
+   </div>
+  <% end %>
+ <%= render "public/shared/links" %>
+</div>

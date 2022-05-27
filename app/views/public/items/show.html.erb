@@ -1,20 +1,29 @@
-<table>
- <thead>
- </thead>
- <tbody>
-  <tr>
-  <td></td>
-  <td><%= @item.name %></td>
-  <td><%= @item.introduction %></td>
-  <td>¥<%= @item.price.to_s(:delimited) %>(税込)</td>
- </tbody>
- </tr>
-</table>
-<%= form_with model: @cart_item, url: cart_items_path do |f| %>
- <% if customer_signed_in? %>
-  <%= f.hidden_field :customer_id, :value => current_customer.id %>
+<div class="item-show">
+ <div class="flex">
+  <div class="border">
+   <% if @item.image.attached? %>
+    <%= image_tag @item.image, size: "450x300" %>
+   <% else %>
+    <%= image_tag 'no_image', size: "450x300" %>
+   <% end %>
+  </div>
+  <div class="mt-1 ml-5">
+   <h4 class="mb-3"><strong><%= @item.name %></strong></h4>
+   <h5><%= @item.introduction %></h5>
+   <h5 class="item-show-price"><strong>¥<%= @item.price.to_s(:delimited) %></strong>(税込)</h5>
+  </div>
+ </div>
+
+ <%= form_with model: @cart_item, url: cart_items_path do |f| %>
+  <% if customer_signed_in? %>
+   <%= f.hidden_field :customer_id, :value => current_customer.id %>
+  <% end %>
+   <%= f.hidden_field :item_id, :value => @item.id %>
+   <div class="flex align-items-center item-show-amount">
+    <% if customer_signed_in? %>
+    <div class="item-select mr-5"><%= f.select(:amount, *[1..10]) %></div>
+    <div><%= f.submit "カートに入れる", class: 'btn btn-success' %></div>
+    <% end %>
+   </div>
  <% end %>
-  <%= f.hidden_field :item_id, :value => @item.id %>
-  <%= f.select :amount, *[1..10] %>
-  <%= f.submit "カートに入れる" %>
-<% end %>
+</div>

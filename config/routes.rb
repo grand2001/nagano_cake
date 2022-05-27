@@ -40,7 +40,7 @@ Rails.application.routes.draw do
    resources :cart_items, only: [:index, :update, :create]
 
    get 'orders/thanks'
-   patch 'orders/confirm'
+   post 'orders/confirm'
    resources :orders, only: [:new, :show, :index, :create]
 
    resources :addresses, only: [:index, :edit, :create, :update, :destroy]

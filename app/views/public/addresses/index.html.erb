@@ -1,36 +1,53 @@
-<h2>配送先登録/一覧</h2>
-<table>
- <thead>
-  <th>郵便番号(ハイフンなし)</th>
-  <th>住所</th>
-  <th>宛名</th>
- </thead>
- <tbody>
-  <%= form_with model: @address, url: addresses_path do |f| %>
-　 <td><%= f.text_field :address %></td>
-　 <td><%= f.text_field :postal_code %></td>
- 　<td><%= f.text_field :name %><%= f.submit '新規登録' %></td>
-  <% end %>
- </tbody>
-</table>
+<p id="notice"></p>
+<% if @address.errors.any? %>
+ <div id="error_explanation">
+  <ul style="color: red">
+   <h3 class="mt-5 ml-5"><%= @address.errors.count %> error prphibited this obj from being saced:</h3>
+   <% @address.errors.full_messages.each do |message| %>
+    <li class="mt-3 ml-5"><%= message %></li>
+   <% end %>
+  </ul>
+ </div>
+<% end %>
+<h3 class="address-tag bg-light text-center">配送先登録/一覧</h3>
 
-<table>
+<%= form_with model: @address, url: addresses_path do |f| %>
+ <div class="d-flex field align-items-center address-field">
+  <div class=""><%= f.label :address , "郵便番号(ハイフンなし)", class: "mb-auto address-field-tag" %></div>
+  <div><%= f.text_field :address, autofocus: true, autocomplete: "address", placeholder: "00000000" %></div>
+ </div>
+
+ <div class="d-flex field align-items-center address-field">
+  <div class=""><%= f.label :postal_code, "住所", class: "mb-auto address-field-tag" %></div>
+  <div><%= f.text_field :postal_code, autofocus: true, autocomplete: "postal_code", size: 50, placeholder: "東京都渋谷区代々木神園町0-0" %></div>
+ </div>
+
+ <div class="d-flex field align-items-center address-field">
+  <div class=""><%= f.label :name, "宛名", class: "mb-auto address-field-tag" %></div>
+  <div><%= f.text_field :name, autofocus: true, autocomplete: "name", placeholder: "令和道子" %><%= f.submit '新規登録', class: 'btn btn-success address-new-m' %></div>
+ </div>
+<% end %>
+
+<table class="mx-4 my-5">
  <thead>
   <tr>
-  <th>郵便番号</th>
-  <th>住所</th>
-  <th>宛名</th>
+   <th class="border add-postal_code-box bg-light">郵便番号</th>
+   <th class="border add-address-box bg-light">住所</th>
+   <th class="border add-name-box bg-light">宛名</th>
+   <th class="border add-link-box bg-light"></th>
   </tr>
  </thead>
  <tbody>
   <% @addresses.each do |addresses| %>
    <tr>
-　 <td><%= addresses.postal_code %></td>
-　 <td><%= addresses.address %></td>
-　 <td><%= addresses.name %></td>
-　 <td><%= link_to "編集する", edit_address_path(addresses.id) %></td>
-　 <td><%= link_to "削除する", address_path(addresses.id), method: :delete %></td>
-　 </tr>
+    <td class="border add-postal_code-box"><%= addresses.postal_code %></td>
+    <td class="border add-address-box"><%= addresses.address %></td>
+    <td class="border add-name-box"><%= addresses.name %></td>
+    <td class="border add-link-box">
+     <%= link_to "編集する", edit_address_path(addresses.id), class: 'btn btn-success px-2 mx-4' %>
+     <%= link_to "削除する", address_path(addresses.id), class: 'btn btn-danger px-2', method: :delete %>
+    </td>
+   </tr>
   <% end %>
  </tbody>
 </table>

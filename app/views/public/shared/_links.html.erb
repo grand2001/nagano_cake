@@ -1,11 +1,17 @@
-<%- if controller_name != 'sessions' %>
-<div>既に登録済みの方</div>
-  <%= link_to "こちら", new_session_path(resource_name) %>
-  からログインしてください。
-<% end %>
+<div class="container">
+ <div class="row py-5">
+   <%- if controller_name != 'sessions' %>
+   <div class="col-4">
+    <div class="bg-light text-center"><h3 class="">既に登録済みの方</h3></div>
+    <div class="public-reg-link"><%= link_to "こちら", new_session_path(resource_name) %> からログインしてください。</div>
+   </div>
+   <% end %>
 
-<%- if devise_mapping.registerable? && controller_name != 'registrations' %>
-<div>会員登録がお済みでない方</div>
-  <%= link_to "こちら", new_registration_path(resource_name) %>
-  から新規登録を行ってください。
-<% end %>
+   <%- if devise_mapping.registerable? && controller_name != 'registrations' %>
+   <div class="col-5">
+    <div class="bg-light text-center"><h4 class="">会員登録がお済みでない方</h4></div>
+    <div class="public-ses-link"><%= link_to "こちら", new_registration_path(resource_name) %> から新規登録を行ってください。</div>
+   </div>
+   <% end %>
+ </div>
+</div>

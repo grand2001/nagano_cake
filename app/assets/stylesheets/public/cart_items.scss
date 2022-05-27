@@ -1,3 +1,35 @@
 // Place all the styles related to the public/cart_items controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+.c-item {
+ margin: 0 0 0 120px;
+}
+
+.c-item-top {
+ width: 300px;
+}
+
+.c-item-top-m {
+ margin: 0 0 0 800px;
+}
+
+.c-item-name {
+ width: 500px;
+}
+
+.c-item-show {
+ width: 190px;
+}
+
+.c-item-total {
+ margin: 40px;
+}
+
+.c-item-total-m {
+ margin-left: 700px;
+}
+
+.c-item-info {
+ margin-left: 500px;
+}

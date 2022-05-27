@@ -1,3 +1,35 @@
 // Place all the styles related to the admin/genres controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+.genres {
+ margin: 50px 0 0 120px;
+}
+
+.genres-top {
+ width: 300px;
+}
+
+.genres-new {
+ margin: 70px 0 60px 70px;
+}
+
+.genres-index {
+ margin: 0 0 20px 60px;
+}
+
+.genres-th {
+ width: 450px;
+}
+
+.genres-td {
+ width: 250px;
+}
+
+.genres-paginatege {
+ margin: 0 0 20px 200px ;
+}
+
+.genres-edit {
+ margin: 50px 0 80px 150px;
+ width: 220px;
+}

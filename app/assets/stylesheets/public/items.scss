@@ -1,3 +1,67 @@
 // Place all the styles related to the public/items controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+.all {
+ margin-top:70px;
+ margin-left:300px;
+}
+
+
+.top {
+ display: flex;
+ margin-bottom:20px;
+}
+
+.count {
+ margin-left: 10px;
+ margin-top: auto;
+}
+
+.info {
+ display: flex;
+ flex-wrap: wrap;
+}
+
+.link {
+ display: block;
+}
+
+.image {
+ margin-right: 50px;
+}
+
+.paginatege > nav {
+ margin-top: 20px;
+ margin-left: 350px;
+}
+
+.paginatege > nav > span {
+ margin: 4px;
+}
+
+.name {
+ margin-top: 3px;
+}
+
+.price {
+ margin-top: 5px;
+}
+
+.item-select > select {
+ width: 100px;
+}
+
+.item-show {
+ margin: 50px 0 0 300px;
+}
+
+.item-show-price {
+ position: absolute;
+ top: 485px;
+ bottom: 0;
+}
+
+.item-show-amount {
+ position: absolute;
+ right: 350px;
+}

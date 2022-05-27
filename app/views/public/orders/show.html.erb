@@ -1,2 +1,70 @@
-<h1>Public::Orders#show</h1>
-<p>Find me in app/views/public/orders/show.html.erb</p>
+<h3 class="order-top bg-light text-center">注文履歴詳細</h3>
+<div class="flex mt-5 ml-5">
+ <div class="block">
+  <h5 class="mb-3">注文情報</h5>
+  <div class="flex">
+   <div>
+    <div class="border bg-light px-1 py-3 order-show-info-th">注文日</div>
+    <div class="border bg-light px-1 order-show-address-th">配送先</div>
+    <div class="border bg-light px-1 py-3 order-show-info-th">支払方法</div>
+   </div>
+   <div>
+    <div class="border px-1 py-3 order-show-info-td"><%= @order.created_at.strftime('%Y/%m/%d') %></div>
+    <div class="border px-1 order-show-info-td">
+     <div>〒<%= @order.postal_code %></div>
+     <div><%= @order.address %></div>
+     <div><%= @order.name %></div>
+    </div>
+    <div class="border px-1 py-3 order-show-info-td"><%= @order.payment_method_i18n %></div>
+   </div>
+  </div>
+ </div>
+
+ <div class="block ml-4">
+  <h5 class="mb-3">請求情報</h5>
+  <div class="flex">
+   <div>
+    <div class="border bg-light px-1 py-3 order-show-price-th">商品合計</div>
+    <div class="border bg-light px-1 py-3 order-show-price-th">配送料</div>
+    <div class="border bg-light px-1 py-3 order-show-price-th">ご請求額</div>
+   </div>
+   <div>
+    <div class="border px-1 py-3 order-show-price-td">
+     <% sum = 0 %>
+     <% total = 0 %>
+     <% @order.order_informations.each do |order_info| %>
+      <% sum += (order_info.purchase_price * order_info.amount).to_i %>
+      <% total += sum %>
+       <% sum = 0 %>
+     <% end %>
+     <%= total.to_s(:delimited) %>
+    </div>
+    <div class="border px-1 py-3 order-show-price-td">800</div>
+    <div class="border px-1 py-3 order-show-price-td"><%= (total + 800).to_s(:delimited) %></div>
+   </div>
+  </div>
+ </div>
+</div>
+
+
+<h5 class="my-3 ml-5">注文内容</h5>
+ <table class="ml-5 mb-5">
+  <thead>
+   <tr>
+    <th class="border bg-light px-1 py-3 order-show-item-name">商品</th>
+    <th class="border bg-light px-1 py-3 order-show-item-price">単価(税込)</th>
+    <th class="border bg-light px-1 py-3 order-show-item-amount">個数</th>
+    <th class="border bg-light px-1 py-3 order-show-item-total">小計</th>
+   </tr>
+  </thead>
+  <tbody>
+   <% @order.order_informations.each do |order_info| %>
+   <tr>
+    <td class="border px-1 py-3"><%= order_info.item.name %></td>
+    <td class="border px-1 py-3"><%= order_info.item.price.to_s(:delimited) %></td>
+    <td class="border px-1 py-3"><%= order_info.amount %></td>
+    <td class="border px-1 py-3"><%= (order_info.item.price*order_info.amount).to_s(:delimited) %></td>
+   </tr>
+   <% end %>
+  </tbody>
+ </table>

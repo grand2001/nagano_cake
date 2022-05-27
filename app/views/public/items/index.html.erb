@@ -1,18 +1,23 @@
-<h2>商品一覧</h2>
-<h5>(全<%= @item.count %>件)</h5>
-<table>
- <thead>
- </thead>
- <tbody>
+<div class="all">
+ <div class="top">
+  <h2 class="items">商品一覧</h2>
+  <h5 class="count">(全<%= @items.count %>件)</h5>
+ </div>
+
+ <div class="info">
   <% @item.each do |item| %>
-  <tr>
-  <td></td>
-  <td>
-   <%= link_to item.name, item_path(item.id) %>
-  </td>
-  <td><%= item.price.to_s(:delimited) %></td>
-  </tr>
+  <div class="link">
+   <div class="image border">
+    <% if item.image.attached? %>
+     <%= image_tag item.image, size: "200x150" %>
+    <% else %>
+     <%= image_tag 'no_image', size: "200x150" %>
+    <% end %>
+   </div>
+    <div class="name"><%= link_to item.name, item_path(item.id) %></div>
+   <div class="price">¥<%= item.price.to_s(:delimited) %></div>
+  </div>
   <% end %>
- </tbody>
-</table>
-<%= paginate @item %>
+ </div>
+ <div class="paginatege"><%= paginate @item %></div>
+</div>

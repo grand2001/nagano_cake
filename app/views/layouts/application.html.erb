@@ -6,93 +6,111 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
+    <%= stylesheet_link_tag 'application' %>
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+
   </head>
 
   <body>
     <header>
-    <div>
-     <h1>LOGO</h1>
-    </div>
-    <ul>
+    <div class="container-fluid border px-5">
+     <div class="row">
+      <div class="col">
+       <nav class="navbar navbar-expand-lg">
+        <a class="navbar-brand border px-5 text-dark" href="/">
+         <span>LOGO</span>
+        </a>
+       </nav>
+      </div>
+     </div>
+    <ul class="navbar-nav ml-auto">
+     <div class="row justify-content-end">
      <% if customer_signed_in? %>
-       <li class="nav-item">
-        <%= link_to customer_path(current_customer.id) do %>
-         <i class="class"></i> マイページ
+
+       <li class="nav-item px-3">
+        <%= link_to customer_path(current_customer.id), class: 'nav-link' do %>
+         <button class="btn btn-light border" type="button">マイページ</button>
         <% end %>
        </li>
-       <li class="nav-item">
-        <%= link_to items_path do %>
-         <i></i> 商品一覧
+       <li class="nav-item px-3">
+        <%= link_to items_path, class: 'nav-link' do %>
+         <button class="btn btn-light border" type="button">商品一覧</button>
+         <i></i>
         <% end %>
        </li>
-       <li  class="nav-item">
-        <%= link_to cart_items_path do %>
-         <i></i> カート
+       <li class="nav-item px-3">
+        <%= link_to cart_items_path, class: 'nav-link' do %>
+         <button class="btn btn-light border" type="button">カート</button>
         <% end %>
        </li>
-       <li class="nav-item">
-        <%= link_to destroy_customer_session_path, method: :delete do %>
-         <i></i> ログアウト
+       <li class="nav-item px-3">
+        <%= link_to destroy_customer_session_path, method: :delete, class: 'nav-link' do %>
+         <button class="btn btn-light border" type="button">ログアウト</button>
         <% end %>
        </li>
 
        <% elsif admin_signed_in? %>
-          <li  class="nav-item">
-           <%= link_to admin_items_path, class: 'class' do %>
-           <i class="class"></i> 商品一覧
+          <li  class="nav-item px-3">
+           <%= link_to admin_items_path, class: 'nav-link' do %>
+           <button class="btn btn-light border" type="button">商品一覧</button>
           <% end %>
           </li>
-          <li class="nav-item">
-           <%= link_to admin_customers_path do %>
-            <i></i> 会員一覧
+          <li class="nav-item px-3">
+           <%= link_to admin_customers_path, class: 'nav-link' do %>
+            <button class="btn btn-light border" type="button">会員一覧</button>
            <% end %>
           </li>
-          <li class="nav-item">
-            <%= link_to admin_root_path do %>
-           <i></i> 注文履歴一覧
+          <li class="nav-item px-3">
+            <%= link_to admin_root_path, class: 'nav-link' do %>
+             <button class="btn btn-light border" type="button">注文履歴一覧</button>
           <% end %>
           </li>
-          <li class="nav-item">
-            <%= link_to admin_genres_path do %>
-           <i></i> ジャンル一覧
+          <li class="nav-item px-3">
+            <%= link_to admin_genres_path, class: 'nav-link' do %>
+             <button class="btn btn-light border" type="button">ジャンル一覧</button>
           <% end %>
           </li>
-          <li class="nav-item">
-            <%= link_to destroy_admin_session_path, method: :delete do %>
-           <i></i> ログアウト
+          <li class="nav-item px-3">
+            <%= link_to destroy_admin_session_path, method: :delete, class: 'nav-link' do %>
+           <button class="btn btn-light border" type="button">ログアウト</button>
           <% end %>
           </li>
 
           <% else %>
-          <li  class="nav-item">
-           <%= link_to about_path, class: 'class' do %>
-           <i class="class"></i> About
+          <li class="nav-item px-3">
+           <%= link_to about_path, class: 'nav-link' do %>
+           <button class="btn btn-light border" type="button">About</button>
           <% end %>
           </li>
-          <li class="nav-item">
-           <%= link_to items_path do %>
-            <i></i> 商品一覧
+          <li class="nav-item px-3">
+           <%= link_to items_path, class: 'nav-link' do %>
+            <button class="btn btn-light border" type="button">商品一覧</button>
            <% end %>
           </li>
-          <li class="nav-item">
-           <%= link_to new_customer_registration_path do %>
-            <i></i> 新規登録
+          <li class="nav-item px-3">
+           <%= link_to new_customer_registration_path, class: 'nav-link' do %>
+            <button class="btn btn-light border" type="button">新規登録</button>
            <% end %>
           </li>
-          <li class="nav-item">
-           <%= link_to new_customer_session_path do %>
-            <i></i> ログイン
+          <li class="nav-item px-3">
+           <%= link_to new_customer_session_path, class: 'nav-link' do %>
+            <button class="btn btn-light border" type="button">ログイン</button>
            <% end %>
           </li>
          <% end %>
+      </div>
      </ul>
-    <div>
-     <form id="form2" action="/" method="get">
-      <input id="sbox2"  id="s" name="s" type="text" placeholder="Search"/>
-      <button type="submit" id="sbtn2"><i class="fa fa-search"></i></button>
-     </form>
+
+
+     <div class="row justify-content-end py-2 px-2">
+      <div class="">
+       <form id="form2" action="/" method="get">
+        <input id="sbox2"  id="s" name="s" type="text" placeholder="Search"/>
+        <button type="submit" id="sbtn2"><i class="fas fa-search"></i></button>
+       </form>
+      </div>
+     </div>
     </div>
     </header>
     <%= yield %>
