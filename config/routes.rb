@@ -35,8 +35,8 @@ Rails.application.routes.draw do
    patch 'customers/withdrawal'
    resources :customers, only: [:show, :edit, :update]
 
-   delete 'cart_items/:id' => 'cart_items#cancel', as: "cart_items_cancel"
    delete 'cart_items/all_cancel'
+   delete 'cart_items/:id' => 'cart_items#cancel', as: "cart_items_cancel"
    resources :cart_items, only: [:index, :update, :create]
 
    get 'orders/thanks'

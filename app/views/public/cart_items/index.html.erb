@@ -35,7 +35,7 @@
  </table>
 
  <div class="d-flex align-items-center c-item-total">
-  <div><%= link_to "買い物を続ける", items_path, class: 'btn btn-primary' %></div>
+  <div><%= link_to "買い物を続ける", root_path, class: 'btn btn-primary' %></div>
   <div class="flex c-item-total-m">
    <div class="border bg-light  px-1 py-3 c-item-show">合計金額</div>
    <div class="border  px-1 py-3 c-item-show"><%= @total.round.to_s(:delimited)%></div>

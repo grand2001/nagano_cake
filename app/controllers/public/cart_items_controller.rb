@@ -1,6 +1,4 @@
 class Public::CartItemsController < ApplicationController
-  before_action :authenticate_customer!
-
   def index
    @customer = current_customer
    @cart_item = CartItem.where(customer_id: current_customer)

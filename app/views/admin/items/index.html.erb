@@ -1,5 +1,12 @@
 <div class="admin-item">
- <h3 class="admin-item-top bg-light text-center mb-5">商品一覧</h3>
+ <div class="d-flex">
+  <h3 class="admin-item-top bg-light text-center mb-5">商品一覧</h3>
+  <div class="admin-item-index-botton">
+   <%= link_to new_admin_item_path, class: "btn border" do %>
+    <div class="fas fa-plus"></div>
+   <% end %>
+  </div>
+ </div>
  <table>
   <thead>
    <tr class="border-top">

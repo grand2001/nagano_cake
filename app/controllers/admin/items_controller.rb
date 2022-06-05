@@ -1,6 +1,6 @@
 class Admin::ItemsController < ApplicationController
  before_action :authenticate_admin!
- 
+
   def index
    @items = Item.page(params[:page])
    @genre = Genre.all
@@ -39,6 +39,7 @@ class Admin::ItemsController < ApplicationController
    if @item.update(item_params)
     redirect_to admin_item_path(@item.id)
    else
+    @genres = Genre.all
     render 'admin/items/edit'
    end
   end

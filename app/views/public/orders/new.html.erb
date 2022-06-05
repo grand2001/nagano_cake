@@ -15,7 +15,7 @@
  <h4 class="mx-5"><strong>支払方法</strong></h4>
  <div>
   <div class="order-new-radio">
-   <%= f.radio_button :payment_method, Order.payment_methods.key(0) %>
+   <%= f.radio_button :payment_method, Order.payment_methods.key(0), checked: true %>
    <%= f.label :payment_method, Order.payment_methods_i18n[:credit_card] %>
   </div>
   <div class="order-new-radio">
@@ -25,7 +25,7 @@
  </div>
  <h4 class="mx-5 mt-3"><strong>お届け先</strong></h4>
  <div class="order-new-radio">
-  <%= f.radio_button :address_option, '0' %>
+  <%= f.radio_button :address_option, '0', checked: true %>
   <%= f.label :address_option, 'ご自身の住所', value: 0 %>
  </div>
  <div class="order-address">

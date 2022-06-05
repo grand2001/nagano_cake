@@ -9,7 +9,7 @@
   </ul>
  </div>
 <% end %>
-<div class="admin-item">
+<div class="admin-item mb-5">
  <h3 class="mb-5 bg-light text-center admin-item-edit">商品編集</h3>
 
  <%= form_with model: @item, url: admin_item_path(@item.id), method: :patch do |f|  %>
@@ -36,7 +36,7 @@
 
    <div class="d-flex align-items-center mb-3">
     <div><%= f.label :price , "税込価格", class: "mb-auto admin-item-edit-th" %></div>
-    <div><%= f.text_field :price, class: "admin-item-edit-td" %>円</div>
+    <div><%= f.text_field :price, class: "admin-item-edit-td" %></div>円
    </div>
 
    <div class="d-flex align-items-center">
